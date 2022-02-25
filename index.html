@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>LIX Beregner</h1>
+    <br />
+    <div class="poop">
+      <textarea id="inprut"></textarea>
+      <button onclick="LixBeregner()">Beregn</button>
+    </div>
+    <h1 id="lix-score">LIX Score:</h1>
+    <h1 id="lix-diff">Difficulty:</h1>
+
+    <script>
+      function LixBeregner() {
+        const input = document.getElementById('inprut').value;
+        let putRead;
+        if (!input) {
+          return 0;
+        }
+        const text = input.toString();
+        const numberOfWords = (text.match(/\S+/g) || []).length;
+        const numberOfPeriods = (text.match(/\.|:/g) || []).length;
+        const numberOfLongWords = text.split(' ').filter(function (word) {
+          return word.length > 6;
+        }).length;
+        const lix = numberOfWords / numberOfPeriods + (numberOfLongWords * 100) / numberOfWords;
+        if (lix !== Infinity) {
+          document.getElementById('lix-score').innerText = `LIX Score: ${parseFloat(lix.toFixed(2))}`;
+
+          if (lix >= 55) {
+            putRead = 'Difficulty: Very hard.';
+          } else if (lix >= 45) {
+            putRead = 'Difficulty: Hard.';
+          } else if (lix >= 35) {
+            putRead = 'Difficulty: Average.';
+          } else if (lix >= 25) {
+            putRead = 'Difficulty: Easy.';
+          } else putRead = 'Difficulty: Very easy.';
+          document.getElementById('lix-diff').innerText = `${putRead}`;
+        } else {
+          return 0;
+        }
+      }
+    </script>
+
+    <style>
+      #inprut {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+      }
+      button {
+        margin-top: 2rem;
+        max-width: 5rem;
+      }
+      .poop {
+        display: flex;
+        flex-direction: column;
+        max-width: 30rem;
+      }
+    </style>
+  </body>
+</html>

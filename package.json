@@ -1,0 +1,19 @@
+{
+  "name": "lix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatteusSteinberg/LIX.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatteusSteinberg/LIX/issues"
+  },
+  "homepage": "https://github.com/MatteusSteinberg/LIX#readme"
+}
